@@ -15,11 +15,13 @@ repositories {
 dependencies {
 	//기본 세팅
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok:1.18.26'
 	compileOnly 'org.projectlombok:lombok:1.18.26'
 
 	//security 관련
-	implementation 'org.springframework.boot:spring-boot-starter-security'
+	//이건 디펜던시만 받았는데도 기본 설정값으로 마음대로 넣어버린다. 무서운놈이네
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
 
 
 	//db 관련
@@ -38,7 +40,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-aop:2.7.11'
 
 	//jsp 관련
-	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+//	runtimeOnly 'org.apache.tomcat.embed:tomcat-embed-jasper'
+//	compileOnly 'javax.servlet:jstl:1.2'
 
 	//thymeleaf 관련
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'

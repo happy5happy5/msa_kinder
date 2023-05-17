@@ -1,18 +1,19 @@
 package com.msa.kindergarden.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/")
 public class HomeController {
 
     @GetMapping("")
     public String home(Model model){
-        System.out.println("home controller");
+        System.out.println("[HOME CONTROLLER]......");
         model.addAttribute("message","Hello, World!");
-        return "home";
+        return "homepage";
     }
 }
