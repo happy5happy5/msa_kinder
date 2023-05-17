@@ -33,9 +33,9 @@
                 </ul>
                 <div class="spacer mx-auto"></div>
                 <a class="nav-item mr-auto border" type="button"
-                   href="<c:url value="/page/login.jsp"/>">로그인</a><a
+                   href="<c:url value="/login"/>">로그인</a><a
                     class="nav-item mr-auto border" type="button"
-                    href="<c:url value="/page/signup.jsp"/>">회원가입</a>
+                    href="<c:url value="/signup"/>">회원가입</a>
             </div>
         </div>
     </nav>
