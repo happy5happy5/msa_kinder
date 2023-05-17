@@ -1,19 +1,23 @@
 package com.msa.kindergarden;
 
+import com.msa.kindergarden.domain.Notice;
 import com.msa.kindergarden.domain.User;
+import com.msa.kindergarden.repository.NoticeRepository;
 import com.msa.kindergarden.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
+@AllArgsConstructor
 public class DummyDataLoader implements CommandLineRunner {
 
-    @Autowired
     private UserRepository userRepository;
-
+    private NoticeRepository noticeRepository;
 
     @Override
     public void run(String... args) {
@@ -53,5 +57,18 @@ public class DummyDataLoader implements CommandLineRunner {
         userRepository.save(user2);
         userRepository.save(user3);
         userRepository.save(user4);
+
+        List<Notice> notices = new ArrayList<>();
+        for(int i = 0; i < 30; i++){
+            Notice notice = Notice.builder()
+                    .title("Notice " + (i+1))
+                    .content("This is notice number " + (i+1))
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .user(user1)
+                    .build();
+            notices.add(notice);
+        }
+        noticeRepository.saveAll(notices);
     }
 }
