@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,8 +62,6 @@ public class DummyDataLoader implements CommandLineRunner {
             Notice notice = Notice.builder()
                     .title("Notice " + (i+1))
                     .content("This is notice number " + (i+1))
-                    .createdAt(LocalDateTime.now())
-                    .updatedAt(LocalDateTime.now())
                     .user(user1)
                     .build();
             notices.add(notice);

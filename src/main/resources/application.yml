@@ -29,7 +29,7 @@ spring:
   mvc:
     static-path-pattern: /resources/**
     view:
-      prefix: WEB-INF/views/
+      prefix: /WEB-INF/views/
       suffix: .jsp
 #      thymeleaf 사용하기위해서는 security config가 따로 필요함
 #      그냥 놔두면 WEB-INF가 없어서 role,접근제어등이 안됨

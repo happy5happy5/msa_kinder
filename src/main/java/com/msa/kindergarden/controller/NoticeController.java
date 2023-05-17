@@ -20,6 +20,7 @@ public class NoticeController {
 
     @GetMapping("/create")
     public String createNoticeForm(Model model){
+        System.out.println("[Notice create]만들기 시작");
         model.addAttribute("notice", new Notice());
         return "pages/notice_form";
     }
@@ -36,12 +37,6 @@ public class NoticeController {
         model.addAttribute("notices", notices);
         return "pages/notice_delete";
     }
-
-//    @PostMapping("/delete")
-//    public String deleteNoticeByNotice(@RequestParam("noticeId") Long noticeId){
-//        noticeService.deleteNotice(noticeId);
-//        return "redirect:/notice";
-//    }
 
     @GetMapping("/detail")
     public String getNoticeById(@RequestParam("id") Long noticeId, Model model){

@@ -1,6 +1,7 @@
 package com.msa.kindergarden.domain;
 
 import lombok.*;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -23,6 +24,7 @@ public class Notice {
 
     private String content;
 
+    @UpdateTimestamp
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
