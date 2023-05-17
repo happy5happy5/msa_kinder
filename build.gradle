@@ -40,11 +40,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-aop:2.7.11'
 
 	//jsp 관련
-//	runtimeOnly 'org.apache.tomcat.embed:tomcat-embed-jasper'
-//	compileOnly 'javax.servlet:jstl:1.2'
+	runtimeOnly 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	compileOnly 'javax.servlet:jstl:1.2'
 
 	//thymeleaf 관련
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+//	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 }
 
