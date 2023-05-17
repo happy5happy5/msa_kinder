@@ -13,6 +13,10 @@
             <p><strong>Content: </strong>${notice.content}</p>
             <p><strong>Created At: </strong>${notice.createdAt}</p>
             <p><strong>Updated At: </strong>${notice.updatedAt}</p>
+            <form action="<c:url value='/notice/delete/${notice.id}'/>" method="post">
+<%--                <input type="hidden" name="_method" value="delete">--%>
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
     </div>
 </div>

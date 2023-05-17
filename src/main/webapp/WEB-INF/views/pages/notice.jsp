@@ -29,7 +29,7 @@
         </tbody>
     </table>
     <a href="/notice/create" class="btn btn-primary">게시글 만들기</a>
-    <a href="/notice/delete" class="btn btn-danger">게시글 삭제</a>
+
 </div>
 <nav aria-label="Page navigation example">
     <ul class="pagination">

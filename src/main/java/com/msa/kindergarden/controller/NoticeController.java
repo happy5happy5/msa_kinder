@@ -67,10 +67,10 @@ public class NoticeController {
     }
 
     // Build Delete Notice REST API
-    @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteNotice(@PathVariable("id") Long noticeId){
-        noticeService.deleteNotice(noticeId);
-        return new ResponseEntity<>("Notice successfully deleted!", HttpStatus.OK);
+    @PostMapping("/delete/{id}")
+    public String deleteNotice(@PathVariable Long id){
+        noticeService.deleteNotice(id);
+        return "redirect:/notice";
     }
 
 }
