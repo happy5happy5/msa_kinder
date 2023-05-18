@@ -19,16 +19,16 @@ public class TokenController {
 
 
     @PostMapping("/refresh")
-    public ResponseEntity<?> refreshToken(@CookieValue("jwt_token") String token) {
+        public ResponseEntity<?> refreshToken(@CookieValue("Token") String token) {
         String newToken = jwtTokenProvider.refreshJwtToken(token);
-        Cookie newCookie = new Cookie("jwt_token", newToken);
-        newCookie.setMaxAge(60 * 60); // 1시간 유지
+        Cookie newCookie = new Cookie("token", newToken);
+        newCookie.setMaxAge(1); // 1시간 유지
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, newCookie.toString()).build();
     }
 
     @GetMapping("/refresh")
     public ResponseEntity<?> refreshToken(HttpServletRequest request, HttpServletResponse response) {
-        Cookie cookie = WebUtils.getCookie(request, "jwt_token");
+        Cookie cookie = WebUtils.getCookie(request, "token");
         if (cookie == null) {
             return ResponseEntity.badRequest().build();
         }
@@ -39,7 +39,7 @@ public class TokenController {
         }
 
         String refreshedToken = jwtTokenProvider.refreshJwtToken(token);
-        Cookie newCookie = new Cookie("jwt_token", refreshedToken);
+        Cookie newCookie = new Cookie("token", refreshedToken);
         newCookie.setMaxAge(60 * 60 * 24);
         newCookie.setPath("/");
         response.addCookie(newCookie);

@@ -33,45 +33,19 @@
                     </li>
                 </ul>
                 <div class="spacer mx-auto"></div>
-                <c:if test="${empty cookie.token}">
-                    <a class="nav-item mr-auto border" type="button"
-                       href="<c:url value="/login"/>">로그인</a>
-                    <a class="nav-item mr-auto border" type="button"
-                       href="<c:url value="/signup"/>">회원가입</a>
-                </c:if>
-                <c:if test="${not empty cookie.token}">
-                    <a class="nav-item mr-auto border" type="button"
-                       href="<c:url value="/mypage"/>">마이페이지</a>
-                    <a class="nav-item mr-auto border" type="button"
-                       href="" onclick="logout">로그아웃</a>
 
-                </c:if>
+
+                <a class="nav-item mr-auto border " id="login-btn" type="button"
+                   href="<c:url value="/login"/>">로그인</a>
+                <a class="nav-item mr-auto border " id="signup-btn" type="button"
+                   href="<c:url value="/signup"/>">회원가입</a>
+                <a class="nav-item mr-auto border " id="mypage" type="button"
+                   href="<c:url value="/mypage"/>">마이페이지</a>
+                <a class="nav-item mr-auto border " id="logout" type="button"
+                   href="#" onclick="logout()">로그아웃</a>
+
             </div>
         </div>
     </nav>
-    <script>
-        function logout() {
-            $.ajax({
-                type: "POST",
-                url: "/logout",
-                success: function (response) {
-                    // 토큰 쿠키 삭제
-                    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                    // 로그인 페이지로 이동
-                    window.location.href = "/login";
-                },
-                error: function () {
-                    console.error("Failed to logout.");
-                }
-            });
-        }
 
-        function isTokenExpired(token) {
-            const payload = JSON.parse(atob(token.split('.')[1]));
-            const expirationTime = payload.exp;
-            const currentTime = Math.floor(Date.now() / 1000);
-            return expirationTime < currentTime;
-        }
-
-    </script>
 </header>

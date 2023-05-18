@@ -51,12 +51,14 @@ public class LoginController {
             SecretKey key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
             Claims claims = Jwts.claims();
             claims.put("username", username);
+            claims.put("userId",user.getUserId());
 
             String token = jwtTokenProvider.generateToken(claims);
 
             Cookie cookie = new Cookie("token", token);
             cookie.setPath("/");
-            cookie.setMaxAge(60 * 60 * 24 * 7); // 1주일 동안 유효
+            cookie.setMaxAge(10); // last 10 seconds
+//            cookie.setMaxAge(60 * 60 * 24 * 7); // 1주일 동안 유효
             response.addCookie(cookie);
             return "redirect:/";
         } else {

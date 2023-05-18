@@ -52,5 +52,6 @@
         </li>
     </ul>
 </nav>
+<%@include file="footer.jsp"%>
 </body>
 </html>

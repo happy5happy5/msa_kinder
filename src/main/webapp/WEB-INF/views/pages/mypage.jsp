@@ -15,5 +15,6 @@
     <li>이메일: honggildong@gmail.com</li>
     <li>전화번호: 010-1234-5678</li>
 </ul>
+<%@include file="footer.jsp"%>
 </body>
 </html>
