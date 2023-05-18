@@ -4,8 +4,6 @@ import com.msa.kindergarden.domain.Query;
 import com.msa.kindergarden.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -36,22 +34,41 @@ public class QueryController {
         return "pages/query";
     }
 
-    @PostMapping("/")
-    public ResponseEntity<Query> createQuery(@RequestBody Query query) {
-        Query createdQuery = queryService.createQuery(query);
-        return new ResponseEntity<>(createdQuery, HttpStatus.CREATED);
+    @GetMapping("/{id}")
+    public String getQueryById(@PathVariable Long id, Model model) {
+        Query query = queryService.getQueryById(id);
+        model.addAttribute("query", query);
+        return "pages/query_detail";
     }
 
-    @PutMapping("/{queryId}")
-    public ResponseEntity<Query> updateQuery(@PathVariable Long queryId, @RequestBody Query query) {
-        Query updatedQuery = queryService.updateQuery(queryId, query);
-        return new ResponseEntity<>(updatedQuery, HttpStatus.OK);
+    @GetMapping("/create")
+    public String showCreateQueryForm(Model model) {
+        model.addAttribute("query", new Query());
+        return "pages/query_form";
     }
 
-    @DeleteMapping("/{queryId}")
-    public ResponseEntity<Void> deleteQuery(@PathVariable Long queryId) {
-        queryService.deleteQuery(queryId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    @PostMapping("/create")
+    public String createQuery(@ModelAttribute Query query) {
+        queryService.createQuery(query);
+        return "redirect:/queries";
+    }
+
+    @GetMapping("/{id}/update")
+    public String showUpdateQueryForm(@PathVariable Long id, Model model) {
+        Query query = queryService.getQueryById(id);
+        model.addAttribute("query", query);
+        return "pages/query_form";
+    }
+
+    @PostMapping("/{id}/update")
+    public String updateQuery(@PathVariable Long id, @ModelAttribute Query query) {
+        queryService.updateQuery(id, query);
+        return "redirect:/queries";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String deleteQuery(@PathVariable Long id) {
+        queryService.deleteQuery(id);
+        return "redirect:/queries";
     }
 }
-

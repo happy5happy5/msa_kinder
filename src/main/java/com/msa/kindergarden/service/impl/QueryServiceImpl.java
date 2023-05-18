@@ -22,7 +22,7 @@ public class QueryServiceImpl implements QueryService {
 
     @Override
     public Page<Query> getAllQueries(int page, int size, String sortBy) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy).descending());
         return queryRepository.findAll(pageable);
     }
 
@@ -53,5 +53,11 @@ public class QueryServiceImpl implements QueryService {
             queryRepository.delete(query);
         }
     }
+
+    @Override
+    public Query getQueryById(Long queryId) {
+        return queryRepository.findById(queryId).orElse(null);
+    }
+
 }
 

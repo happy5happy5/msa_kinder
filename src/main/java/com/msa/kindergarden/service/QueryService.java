@@ -8,4 +8,6 @@ public interface QueryService {
     Query createQuery(Query query);
     Query updateQuery(Long queryId, Query query);
     void deleteQuery(Long queryId);
+
+    Query getQueryById(Long queryId);
 }

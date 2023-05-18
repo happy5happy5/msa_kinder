@@ -49,7 +49,7 @@ public class NoticeController {
     @GetMapping
     public String getAllNotices(@RequestParam(defaultValue = "0") int page,
                                 @RequestParam(defaultValue = "10") int size,
-                                @RequestParam(defaultValue = "createdAt") String sortBy,
+                                @RequestParam(defaultValue = "id") String sortBy,
                                 Model model){
         Page<Notice> pageResult = noticeService.getAllNotices(page, size, sortBy);
         model.addAttribute("notices", pageResult.getContent());
