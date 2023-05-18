@@ -2,8 +2,10 @@
          pageEncoding="UTF-8" %>
 
 <script>
-    function checkToken() {
+    function checkToken(needValidAccess) {
+
         const token = getCookie("token");
+
         if (token===undefined || isTokenExpired(token)) {
             console.log("만료토큰")
             console.log("token: "+token)
@@ -13,6 +15,9 @@
             document.querySelector("#signup-btn").style.display = "block";
             document.querySelector("#mypage").style.display = "none";
             document.querySelector("#logout").style.display = "none";
+            if(needValidAccess){//유효하지 않은 접근을 했을때 이동 시켜버리기
+                window.location.href = "/login";
+            }
         } else {
             console.log("유효토큰")
             console.log("token: "+token)
@@ -23,6 +28,7 @@
             document.querySelector("#mypage").style.display = "block";
             document.querySelector("#logout").style.display = "block";
         }
+
     }
 
     function getCookie(name) {

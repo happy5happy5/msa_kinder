@@ -28,7 +28,7 @@
         </c:forEach>
         </tbody>
     </table>
-    <a href="/notice/create" class="btn btn-primary">게시글 만들기</a>
+    <a href="/notice/create" class="btn btn-primary" onclick="checkToken(true)">게시글 만들기</a>
 
 </div>
 <nav aria-label="Page navigation example">
