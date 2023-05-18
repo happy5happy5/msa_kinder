@@ -50,38 +50,10 @@
         window.location.href = "/";
     }
 
-    // function getCurrentUser() {
-    //     const token = localStorage.getItem('token');
-    //     if (token) {
-    //         $.ajax({
-    //             type: 'GET',
-    //             url: '/users/me',
-    //             beforeSend: function(xhr) {
-    //                 xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-    //             },
-    //             success: function(data) {
-    //                 const userName = document.getElementById('userName');
-    //                 const userId=document.getElementById('userId');
-    //                 userName.value = data.userName;
-    //                 userId.value = data.userId;
-    //                 console.log(data)
-    //             },
-    //             error: function(jqXHR, textStatus, errorThrown) {
-    //                 console.error(errorThrown);
-    //             }
-    //         });
-    //     }
-    // }
-
-
     //todo: 만료시간 이후에 로그인이 풀린걸 알려줘야함
     checkToken()
 
     // token을 검증하고 바로 유저의 정보를 받아옴
     // getCurrentUser();
-
-
 </script>
-<footer>
 
-</footer>

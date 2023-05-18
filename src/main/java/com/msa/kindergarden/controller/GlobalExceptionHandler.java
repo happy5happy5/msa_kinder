@@ -22,7 +22,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = ExpiredJwtException.class)
     public Map<String, String> handleException(ExpiredJwtException e){
         Map<String, String> map = new HashMap<String, String>();
-        map.put("errorMsg",e.getMessage());
+        map.put("jwt_errorMsg",e.getMessage());
         return map;
     }
 }

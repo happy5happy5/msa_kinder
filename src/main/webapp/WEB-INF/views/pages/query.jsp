@@ -19,8 +19,8 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Title</th>
-            <th scope="col">Content</th>
             <th scope="col">User</th>
+            <th scope="col">Content</th>
         </tr>
         </thead>
         <tbody>
@@ -28,8 +28,8 @@
             <tr>
                 <th scope="row">${query.id}</th>
                 <td>${query.title}</td>
+                <td>${query.user.userName}</td>
                 <td>${query.content}</td>
-                <td>${query.user}</td>
             </tr>
         </c:forEach>
         </tbody>
