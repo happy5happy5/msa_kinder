@@ -3,6 +3,7 @@ package com.msa.kindergarden.controller;
 import com.msa.kindergarden.domain.Notice;
 import com.msa.kindergarden.service.NoticeService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -50,11 +51,25 @@ public class NoticeController {
                                 @RequestParam(defaultValue = "10") int size,
                                 @RequestParam(defaultValue = "createdAt") String sortBy,
                                 Model model){
-        List<Notice> notices = noticeService.getAllNotices(page, size, sortBy);
-        model.addAttribute("notices", notices);
-        model.addAttribute("totalPages", (int) Math.ceil((double)noticeService.countNotices() / size));
+        Page<Notice> pageResult = noticeService.getAllNotices(page, size, sortBy);
+        model.addAttribute("notices", pageResult.getContent());
+        model.addAttribute("page", pageResult.getNumber());
+        model.addAttribute("totalPages", pageResult.getTotalPages());
+        model.addAttribute("size", pageResult.getSize());
+        model.addAttribute("sortBy", sortBy);
         return "pages/notice";
     }
+
+//    @GetMapping
+//    public String getAllNotices(@RequestParam(defaultValue = "0") int page,
+//                                @RequestParam(defaultValue = "10") int size,
+//                                @RequestParam(defaultValue = "createdAt") String sortBy,
+//                                Model model){
+//        List<Notice> notices = noticeService.getAllNotices(page, size, sortBy);
+//        model.addAttribute("notices", notices);
+//        model.addAttribute("totalPages", (int) Math.ceil((double)noticeService.countNotices() / size));
+//        return "pages/notice";
+//    }
 
     // Build Update Notice REST API
     @PostMapping("{id}")

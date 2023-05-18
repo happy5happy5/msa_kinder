@@ -45,13 +45,13 @@
             </li>
         </c:forEach>
         <li class="page-item ${page == totalPages - 1 ? 'disabled' : ''}">
-            <a class="page-link" href="?page=${page + 1 <= totalPages - 1 ? page + 1 : totalPages - 1}" aria-label="Next">
+            <a class="page-link" href="?page=${page + 1 < totalPages ? page + 1 : totalPages - 1}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
                 <span class="sr-only">Next</span>
             </a>
         </li>
     </ul>
 </nav>
-<%@include file="footer.jsp"%>
 </body>
+<%@ include file="footer.jsp" %>
 </html>

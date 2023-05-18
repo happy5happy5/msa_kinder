@@ -4,6 +4,7 @@ import com.msa.kindergarden.domain.Notice;
 import com.msa.kindergarden.repository.NoticeRepository;
 import com.msa.kindergarden.service.NoticeService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -38,9 +39,9 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public List<Notice> getAllNotices(int page, int size, String sortBy) {
+    public Page<Notice> getAllNotices(int page, int size, String sortBy) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy).descending());
-        return noticeRepository.findAll(pageable).getContent();
+        return noticeRepository.findAll(pageable);
     }
 
     @Override
