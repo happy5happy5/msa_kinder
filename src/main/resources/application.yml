@@ -1,6 +1,9 @@
 server:
   port: 9090
 
+jwt:
+  secret: mysecretkeyzzzzzzzzvawevawegawegweharwawha
+
 spring:
   devtools:
     livereload:
