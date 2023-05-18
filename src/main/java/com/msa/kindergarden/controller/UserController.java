@@ -61,4 +61,11 @@ public class UserController {
         return new ResponseEntity<>("User successfully deleted!", HttpStatus.OK);
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<User> getUserByToken(@RequestHeader("Authorization") String tokenHeader) {
+        String token = tokenHeader.substring(7);
+        User user = userService.getUserByToken(token);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 }

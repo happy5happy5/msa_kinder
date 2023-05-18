@@ -6,6 +6,7 @@ import java.util.List;
 
 
 public interface UserService {
+
     User createUser(User user);
 
     User getUserById(String userId);
@@ -15,4 +16,6 @@ public interface UserService {
     User updateUser(User user);
 
     void deleteUser(String userId);
+
+    User getUserByToken(String token);
 }

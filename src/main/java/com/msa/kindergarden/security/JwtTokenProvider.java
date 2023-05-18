@@ -60,7 +60,7 @@ public class JwtTokenProvider {
         }
     }
 
-    private SecretKey getSecretKey() {
+    public SecretKey getSecretKey() {
         byte[] keyBytes = jwtSecret.getBytes();
         return Keys.hmacShaKeyFor(keyBytes);
     }

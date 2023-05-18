@@ -20,6 +20,7 @@
                     <textarea class="form-control" id="content" name="content"
                               rows="3"></textarea>
                 </div>
+                <input type="hidden" id="userName" name="userName" value="${currentUser.userName}">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

@@ -1,8 +1,10 @@
 package com.msa.kindergarden;
 
 import com.msa.kindergarden.domain.Notice;
+import com.msa.kindergarden.domain.Query;
 import com.msa.kindergarden.domain.User;
 import com.msa.kindergarden.repository.NoticeRepository;
+import com.msa.kindergarden.repository.QueryRepository;
 import com.msa.kindergarden.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -17,6 +19,7 @@ public class DummyDataLoader implements CommandLineRunner {
 
     private UserRepository userRepository;
     private NoticeRepository noticeRepository;
+    private QueryRepository queryRepository;
 
     @Override
     public void run(String... args) {
@@ -67,5 +70,17 @@ public class DummyDataLoader implements CommandLineRunner {
             notices.add(notice);
         }
         noticeRepository.saveAll(notices);
+
+        List<Query> queries = new ArrayList<>();
+        for(int i = 0; i < 20; i++){
+            Query query = Query.builder()
+                    .title("Query " + (i+1))
+                    .content("This is query number " + (i+1))
+                    .user(user2)
+                    .build();
+            queries.add(query);
+        }
+        System.out.println("done");
+        queryRepository.saveAll(queries);
     }
 }

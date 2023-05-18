@@ -2,8 +2,10 @@ package com.msa.kindergarden.service.impl;
 
 import com.msa.kindergarden.domain.User;
 import com.msa.kindergarden.repository.UserRepository;
+import com.msa.kindergarden.security.JwtTokenProvider;
 import com.msa.kindergarden.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +14,15 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final JwtTokenProvider jwtTokenProvider;
+
+    private final UserRepository userRepository;
+
+    // 생성자를 통한 주입
+    public UserServiceImpl(JwtTokenProvider jwtTokenProvider, UserRepository userRepository) {
+        this.jwtTokenProvider = jwtTokenProvider;
+        this.userRepository = userRepository;
+    }
 
 
     public User createUser(User user) {
@@ -46,4 +55,14 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String userId) {
         userRepository.deleteById(userId);
     }
+
+    public User getUserByToken(String token) {
+        Claims claims = Jwts.parser()
+                .setSigningKey(jwtTokenProvider.getSecretKey())
+                .parseClaimsJws(token)
+                .getBody();
+        String userId = claims.getSubject();
+        return userRepository.findById(userId).orElse(null);
+    }
+
 }

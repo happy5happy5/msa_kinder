@@ -20,7 +20,7 @@ public class NoticeController {
 
     @GetMapping("/create")
     public String createNoticeForm(Model model){
-        System.out.println("[Notice create]만들기 시작");
+//        System.out.println("[Notice create]만들기 시작");
         model.addAttribute("notice", new Notice());
         return "pages/notice_form";
     }

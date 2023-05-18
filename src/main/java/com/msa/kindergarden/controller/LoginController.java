@@ -57,9 +57,19 @@ public class LoginController {
 
             Cookie cookie = new Cookie("token", token);
             cookie.setPath("/");
-            cookie.setMaxAge(10); // last 10 seconds
+            cookie.setMaxAge(20); // last 20 seconds
 //            cookie.setMaxAge(60 * 60 * 24 * 7); // 1주일 동안 유효
             response.addCookie(cookie);
+            cookie=new Cookie("userName", username);
+            cookie.setPath("/");
+            cookie.setMaxAge(20); // last 20 seconds
+            response.addCookie(cookie);
+
+            cookie=new Cookie("userId", user.getUserId());
+            cookie.setPath("/");
+            cookie.setMaxAge(20); // last 20 seconds
+            response.addCookie(cookie);
+
             return "redirect:/";
         } else {
             attributes.addAttribute("error", "Invalid username or password!");

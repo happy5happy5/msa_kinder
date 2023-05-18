@@ -28,7 +28,7 @@
                             <li><a class="dropdown-item"
                                    href="<c:url value="/notice"/>">공지사항</a></li>
                             <li><a class="dropdown-item"
-                                   href="<c:url value="/notice"/>">q&a</a></li>
+                                   href="<c:url value="/queries"/>">q&a</a></li>
                         </ul>
                     </li>
                 </ul>
