@@ -27,4 +27,11 @@ public class HomeController {
         System.out.println("[HOME CONTROLLER]introduce...");
         return "pages/introduce";
     }
+
+    @GetMapping("/curriculum")
+    public String curriculumTo(Model model){
+        System.out.println("[HOME CONTROLLER]curriculum...");
+        return "pages/curriculum";
+    }
+
 }

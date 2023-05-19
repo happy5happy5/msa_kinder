@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-md-4 mb-3">
             <div class="card">
-                <img src="/resources/static/1.png" class="card-img-top" alt="Image 4">
+                <img src="${pageContext.request.contextPath}/resources/images/1.png" class="card-img-top" alt="Image 4">
                 <div class="card-body text-center d-flex flex-column justify-content-end">
                     <h5 class="card-title mb-0">제목</h5>
                     <p class="card-text text-secondary mb-0">부제목</p>
@@ -37,7 +37,7 @@
 
         <div class="col-md-4 mb-3">
             <div class="card">
-                <img src="/static/1.png" class="card-img-top" alt="Image 5">
+                <img src="${pageContext.request.contextPath}/resources/images/1.png" class="card-img-top" alt="Image 5">
                 <div class="card-body text-center d-flex flex-column justify-content-end">
                     <h5 class="card-title mb-0">제목</h5>
                     <p class="card-text text-secondary mb-0">부제목</p>
@@ -48,7 +48,7 @@
 
         <div class="col-md-4 mb-3">
             <div class="card">
-                <img src="/resources/static/3.png" class="card-img-top" alt="Image 6">
+                <img src="${pageContext.request.contextPath}/resources/images/1.png" class="card-img-top" alt="Image 6">
                 <div class="card-body text-center d-flex flex-column justify-content-end">
                     <h5 class="card-title mb-0">제목</h5>
                     <p class="card-text text-secondary mb-0">부제목</p>

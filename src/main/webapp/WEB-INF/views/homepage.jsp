@@ -7,7 +7,7 @@
 <%@ include file="pages/navbar.jsp"%>
 <div class="container">
     <h1 id="userprofile"></h1>
-    <img src="https://picsum.photos/600/400?random=1" alt="cute animal picture">
+    <img src="${pageContext.request.contextPath}/resources/images/home.png" alt="cute animal picture">
 </div>
 <%@include file="pages/footer.jsp"%>
 <script>
