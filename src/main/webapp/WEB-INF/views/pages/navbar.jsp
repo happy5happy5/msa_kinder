@@ -18,9 +18,9 @@
                     <li class="nav-item"><a class="nav-link"
                                             href="<c:url value="/curriculum"/>">커리큘럼</a></li>
                     <li class="nav-item"><a class="nav-link"
-                                            href="<c:url value="/page/reservation.jsp"/>">예약하기</a></li>
+                                            href="<c:url value="/reservation"/>">예약하기</a></li>
                     <li class="nav-item"><a class="nav-link"
-                                            href="<c:url value="/page/journal.jsp"/>">알림장</a></li>
+                                            href="<c:url value="/journal"/>">알림장</a></li>
                     <li class="nav-item dropdown"><a
                             class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">고객센터</a>
