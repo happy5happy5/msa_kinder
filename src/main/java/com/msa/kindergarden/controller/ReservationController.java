@@ -30,15 +30,15 @@ public class ReservationController {
         return "pages/reservation_form";
     }
 
-    @PostMapping("/create/{setting}")
-    public String createReservation(@ModelAttribute Reservation reservation, @RequestParam String setting) {
-        if (setting.equals("1")) {
-            reservation.setCurriculum("아침반");
-        } else if (setting.equals("2")) {
-            reservation.setCurriculum("점심반");
-        } else if (setting.equals("3")) {
-            reservation.setCurriculum("저녁반");
-        }
+    @PostMapping("/create")
+    public String createReservation(@ModelAttribute Reservation reservation) {
+//        if (reservation.getCurriculum().equals("아침반")) {
+//            reservation.setCurriculum("아침반");
+//        } else if (setting.equals("b")) {
+//            reservation.setCurriculum("점심반");
+//        } else if (setting.equals("c")) {
+//            reservation.setCurriculum("저녁반");
+//        }
         reservationService.createReservation(reservation);
         return "redirect:/reservation";
     }

@@ -16,4 +16,9 @@ public class HomeController {
         model.addAttribute("message","Hello, World!");
         return "homepage";
     }
+    @GetMapping("/mypage")
+    public String mypageTo(Model model){
+        System.out.println("[HOME CONTROLLER]mypage...");
+        return "pages/mypage";
+    }
 }

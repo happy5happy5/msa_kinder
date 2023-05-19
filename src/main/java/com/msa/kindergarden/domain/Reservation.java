@@ -17,15 +17,14 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long rid;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String user_name;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String phone_number;
-    @Column(nullable = false)
     private String email;
     private String curriculum;
     private String comment;
-    private String mealTime;
+    private LocalDateTime booking_date;
 
     @UpdateTimestamp
     private LocalDateTime createdAt;

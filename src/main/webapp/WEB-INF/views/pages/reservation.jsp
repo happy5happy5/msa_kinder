@@ -30,7 +30,7 @@
                 <div class="card-body text-center d-flex flex-column justify-content-end">
                     <h5 class="card-title mb-0">제목</h5>
                     <p class="card-text text-secondary mb-0">부제목</p>
-                    <a class="btn btn-primary mt-3" href="/reservation/create/1">예약하기</a>
+                    <a class="btn btn-primary mt-3" href="/reservation/create">예약하기</a>
                 </div>
             </div>
         </div>
@@ -41,7 +41,7 @@
                 <div class="card-body text-center d-flex flex-column justify-content-end">
                     <h5 class="card-title mb-0">제목</h5>
                     <p class="card-text text-secondary mb-0">부제목</p>
-                    <a class="btn btn-primary mt-3" href="/reservation/create/2">예약하기</a>
+                    <a class="btn btn-primary mt-3" href="/reservation/create">예약하기</a>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <div class="card-body text-center d-flex flex-column justify-content-end">
                     <h5 class="card-title mb-0">제목</h5>
                     <p class="card-text text-secondary mb-0">부제목</p>
-                    <a class="btn btn-primary mt-3" href="/reservation/create/3">예약하기</a>
+                    <a class="btn btn-primary mt-3" href="/reservation/create">예약하기</a>
                 </div>
             </div>
         </div>
