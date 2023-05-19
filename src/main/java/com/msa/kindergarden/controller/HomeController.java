@@ -21,4 +21,10 @@ public class HomeController {
         System.out.println("[HOME CONTROLLER]mypage...");
         return "pages/mypage";
     }
+
+    @GetMapping("/introduce")
+    public String introduceTo(Model model){
+        System.out.println("[HOME CONTROLLER]introduce...");
+        return "pages/introduce";
+    }
 }
